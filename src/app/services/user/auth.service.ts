@@ -171,4 +171,14 @@ export class AuthService {
 
     return false;
   }
+
+  async logoutUser(): Promise<void>{
+    firebase.auth().signOut().then(
+      (success) => {
+        return success;
+      },
+      error => {
+        return error;
+      }
+    )};
 }

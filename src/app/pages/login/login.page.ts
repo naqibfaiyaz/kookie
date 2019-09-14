@@ -66,9 +66,10 @@ export class LoginPage implements OnInit {
     console.log("ngOnInit");
     this.authService.loggedIn.subscribe(status => {
       this.loading.dismiss();
-
+      
       if (status) {
-        this.navCtrl.navigateForward("/home");
+        console.log(status);
+        this.navCtrl.navigateForward("/");
       }
     });
   }
@@ -91,7 +92,7 @@ export class LoginPage implements OnInit {
 
   async showLoading() {
     this.loading = await this.loadingCtrl.create({
-      message: "Authenticating...",
+      message: "Loading. Please Wait...",
       duration: 5000
     });
 

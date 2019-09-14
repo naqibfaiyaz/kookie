@@ -1,7 +1,6 @@
+import { PopoverComponent } from './../component/popover/popover.component';
 import { Component } from '@angular/core';
-import { AuthService } from '../services/user/auth.service';
-import { LoadingController, AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { PopoverController, AlertController, LoadingController } from '@ionic/angular';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
@@ -11,33 +10,23 @@ import 'firebase/auth';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+  user: any = {};
   public loading: HTMLIonLoadingElement;
   constructor(
-    private authService: AuthService,
+    public popoverController: PopoverController,
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
-    private router: Router,
-    ) {}
+    ) {
+      this.user=firebase.auth().currentUser.providerData[0];
+    }
 
-  async logoutUser(){
-    this.loading = await this.loadingCtrl.create();
-    
-    firebase.auth().signOut().then(
-      () => {
-        this.loading.dismiss().then(() => {
-          this.router.navigateByUrl('');
-        });
-      },
-      error => {
-        this.loading.dismiss().then(async () => {
-          const alert = await this.alertCtrl.create({
-            message: error.message,
-            buttons: [{ text: 'Ok', role: 'cancel' }],
-          });
-          await alert.present();
-        });
-      }
-    )};
-    
+    async presentPopover(ev: any) {
+      const popover = await this.popoverController.create({
+        component: PopoverComponent,
+        event: ev,
+        translucent: true
+      });
+      
+      return await popover.present();
+    }
 }

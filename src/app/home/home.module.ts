@@ -14,7 +14,22 @@ import { HomePage } from './home.page';
     RouterModule.forChild([
       {
         path: '',
-        component: HomePage
+        component: HomePage,
+        children: [
+          {
+            path: 'my_card',
+            children: [
+              {
+                path: '',
+                loadChildren: '../pages/my-cards/my-cards.module#MyCardsPageModule'
+              }
+            ]
+          },
+          {
+            path: 'history',
+            loadChildren: '../pages/points-history/points-history.module#PointsHistoryPageModule',
+          }
+        ]
       }
     ])
   ],
