@@ -1,0 +1,30 @@
+<ion-content>
+    <ion-grid class="bg-blue">
+        <ion-row>
+            <ion-col size="12">
+
+                <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav>
+                    <ion-slide *ngFor="let s of sliderOne.slidesItems">
+                        <div class="img-div"><img src="../../assets/images/{{s.name}}.svg"></div>
+                        <p class="font-16">{{ s.title }}</p>
+                        <p class="font-14 py-2">{{ s.body }}</p>
+                    </ion-slide>
+                </ion-slides>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-item lines="none" class="ion-margin btn-center">
+        <ion-input type="number" placeholder="1712-345678" class="login-number"></ion-input>
+        <button class="ion-no-margin ion-padding-vertical border-1" clear slot="start" style="font-weight: bold;">+880</button>
+    </ion-item>
+
+    <ion-button shape="round" class="ion-padding btn-center" type="submit" color="danger" (click)="googleLogin()">
+        <ion-icon name="logo-google" class="ion-padding"></ion-icon>
+        <span color="light">Sign in with Google</span>
+    </ion-button>
+    <ion-button shape="round" class="ion-padding btn-center" type="submit" (click)="facebookLogin()">
+        <ion-icon name="logo-facebook" class="ion-padding"></ion-icon>
+        <span color="light">Sign in with Facebook</span>
+    </ion-button>
+</ion-content>

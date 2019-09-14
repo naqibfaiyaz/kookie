@@ -1,0 +1,123 @@
+form {
+    margin-bottom: 32px;
+    button {
+        margin-top: 20px !important;
+    }
+}
+
+p {
+    font-size: 0.8em;
+    color: #d2d2d2;
+}
+
+ion-label {
+    margin-left: 5px;
+}
+
+ion-input {
+    padding: 5px;
+}
+
+.invalid {
+    border-bottom: 1px solid #ff6153;
+}
+
+.error-message {
+    min-height: 2.2rem;
+    ion-label {
+        margin: 2px 0;
+        font-size: 60%;
+        color: #ff6153;
+    }
+    .item-inner {
+        border-bottom: 0 !important;
+    }
+}
+
+:root {
+    --ion-safe-area-top: 20px;
+    --ion-safe-area-bottom: 22px;
+}
+
+.swiper-slide {
+    display: block;
+}
+
+ion-slide>h2 {
+    margin-top: 2.8rem;
+}
+
+ion-slide>img {
+    max-height: 30%;
+    max-width: 40%;
+    margin: 36px 0;
+}
+
+.bg-blue {
+    background-color: #11CDEF
+}
+
+ion-slides {
+    --bullet-background: #fff;
+    --opacity: 0.5;
+    --bullet-background-active: #fff;
+}
+
+.border-1 {
+    border: rgba(0, 0, 0, .1);
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.btn-google {
+    color: white;
+    background-color: #ea4335;
+    border-radius: 5rem;
+    padding: 1rem;
+}
+
+.btn-facebook {
+    color: white;
+    background-color: #3b5998;
+}
+
+.img-div {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    margin-top: 64px;
+    width: fit-content;
+    border-radius: 50%;
+}
+
+.img-div>img {
+    height: 56px;
+    width: 56px;
+    vertical-align: middle;
+}
+
+.font-16 {
+    color: #fff;
+    font-size: 16px;
+}
+
+.font-14 {
+    color: #fff;
+    font-size: 14px;
+}
+
+.py-2 {
+    padding-bottom: 1.5rem;
+}
+
+.login-number {
+    border: whitesmoke 4px solid;
+    border-left: 0;
+    padding-left: 8px!important;
+}
+
+.btn-center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 25rem;
+}

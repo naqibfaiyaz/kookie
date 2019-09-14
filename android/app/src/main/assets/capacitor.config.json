@@ -1,0 +1,10 @@
+{
+    "appId": "com.xtrench.kookie",
+    "appName": "kookie",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "www",
+    "ios": {
+        "cordovaLinkerFlags": ["-ObjC"]
+    }
+}
