@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { SuperTabsModule } from '@ionic-super-tabs/angular';
+import "@codetrix-studio/capacitor-google-auth";
+
 
 @NgModule({
   declarations: [AppComponent, PopoverComponent],

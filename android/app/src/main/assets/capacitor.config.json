@@ -9,8 +9,8 @@
     },
     "plugins": {
         "GoogleAuth": {
-          "scopes": ["profile", "email"],
-          "serverClientId": "446571465200-idffp0apa54p4v9o8lvts1tsj0jv9hcs.apps.googleusercontent.com"
+            "scopes": ["email"],
+            "serverClientId": "446571465200-idffp0apa54p4v9o8lvts1tsj0jv9hcs.apps.googleusercontent.com"
         }
-      }
+    }
 }

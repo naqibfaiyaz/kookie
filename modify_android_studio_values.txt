@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">kookie</string>
+    <string name="title_activity_main">kookie</string>
+    <string name="package_name">com.xtrench.kookie</string>
+    <string name="fileprovider_authority">com.xtrench.kookie.fileprovider</string>
+    <string name="custom_url_scheme">com.xtrench.kookie</string>
+    <string name="fb_app_id">676431002855403</string>
+    <string name="fb_app_name">kookie</string>
+    <string name="server_client_id">446571465200-idffp0apa54p4v9o8lvts1tsj0jv9hcs.apps.googleusercontent.com</string>
+</resources>
+
+
+
+
+import com.codetrixstudio.capacitor.GoogleAuth.GoogleAuth;

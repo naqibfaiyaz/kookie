@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { NavController, LoadingController } from "@ionic/angular";
+import { NavController, LoadingController, AlertController } from "@ionic/angular";
 import { AuthService } from "../../services/user/auth.service";
 
 @Component({
@@ -19,7 +19,8 @@ export class LoginPage implements OnInit {
   constructor(
     public authService: AuthService,
     private navCtrl: NavController,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    public alertCtrl: AlertController
   ) {
     this.sliderOne =
       {
@@ -68,38 +69,63 @@ export class LoginPage implements OnInit {
       this.loading.dismiss();
       
       if (status) {
-        console.log(status);
         this.navCtrl.navigateForward("/");
       }
     });
   }
 
   async facebookLogin() {
-    console.log("facebook login");
-    await this.showLoading();
-    this.authService.loginWithFacebook().then(resp =>{
-      this.loading.dismiss();
-    });
+    try{
+      await this.showLoading();
+      let resp = await this.authService.loginWithFacebook();
+      console.log("facebook Login Successful: " + JSON.stringify(resp));
+        if(resp.code=="auth/account-exists-with-different-credential"){
+          this.newAlert("An account already exists with the same email address. Please try with Google Sign-in.");
+        }
+
+        if(resp){
+          await this.loading.dismiss();
+        }
+        return resp;
+    }catch(error){
+      console.log("facebook login failed: " + error);
+      return error
+    }
+    
   }
 
-  async googleLogin() {
-    console.log("Google login");
-    await this.showLoading();
-    this.authService.loginWithGoogle().then(resp =>{
-      this.loading.dismiss();
+  async newAlert(alertText){
+    const alert = await this.alertCtrl.create({
+      message: alertText,
+      buttons: [{ text: 'Ok', role: 'cancel' }],
     });
+    await alert.present();
+  }
+  
+  async googleLogin() {
+    try{
+      await this.showLoading();
+      const resp = await this.authService.loginWithGoogle();
+      if(resp && resp.code=="auth/account-exists-with-different-credential"){
+        this.newAlert("An account already exists with the same email address. Please try with Google Sign-in.");
+      }
+      if(resp){
+        await this.loading.dismiss();
+      }
+      console.log("Google Login Successful: " + JSON.stringify(resp));
+      return resp;
+    }catch(error){
+      console.log("Google login failed: " + error);
+      return error
+    }
   }
 
   async showLoading() {
     this.loading = await this.loadingCtrl.create({
       message: "Loading. Please Wait...",
-      duration: 5000
+      duration: 10000
     });
 
     this.loading.present();
   }
-
-  GoToHome(){
-    location.href='/home';
-  };
 }
