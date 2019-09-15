@@ -11,15 +11,22 @@
 </ion-header>
 
 <ion-content>
-    <ion-tabs>
-        <ion-tab-bar slot="top">
-            <ion-tab-button class="tabbar" tab="my_card" selected>
-                <ion-label class="font-16">My Cards</ion-label>
-            </ion-tab-button>
-
-            <ion-tab-button class="tabbar" tab="history">
-                <ion-label class="font-16">History</ion-label>
-            </ion-tab-button>
-        </ion-tab-bar>
-    </ion-tabs>
+  <super-tabs>
+    <super-tabs-toolbar slot="top" color="toptab">
+      <super-tab-button>
+        <ion-label>My Cards</ion-label>
+      </super-tab-button>
+      <super-tab-button>
+        <ion-label>History</ion-label>
+      </super-tab-button>
+    </super-tabs-toolbar>
+    <super-tabs-container>
+      <super-tab>
+        <ion-nav [root]="MyCardsPage"></ion-nav>
+      </super-tab>
+      <super-tab>
+        <ion-nav [root]="PointsHistoryPage"></ion-nav>
+      </super-tab>
+    </super-tabs-container>
+  </super-tabs>
 </ion-content>

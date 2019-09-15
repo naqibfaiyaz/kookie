@@ -1,0 +1,22 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+:root {
+  --ion-color-toptab: #ffffff;
+  --ion-color-toptab-rgb: 255, 255, 255;
+  --ion-color-toptab-contrast: #FF6969;
+  --ion-color-toptab-contrast-rgb: 255, 105, 105;
+  --ion-color-toptab-shade: #e0bd00;
+  --ion-color-toptab-tint: #ffdb1a;
+}
+.ion-color-toptab {
+  --ion-color-base: var(--ion-color-toptab) !important;
+  --ion-color-base-rgb: var(--ion-color-toptab-rgb) !important;
+  --ion-color-contrast: var(--ion-color-toptab-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-toptab-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-toptab-shade) !important;
+  --ion-color-tint: var(--ion-color-toptab-tint) !important;
+}
+
+$font-family-base: "Open Sans";

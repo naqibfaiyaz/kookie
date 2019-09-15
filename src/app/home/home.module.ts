@@ -3,35 +3,25 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
+import { SuperTabsModule } from '@ionic-super-tabs/angular';
 import { HomePage } from './home.page';
+import { MyCardsPageModule } from './../pages/my-cards/my-cards.module';
+import { PointsHistoryPageModule } from './../pages/points-history/points-history.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SuperTabsModule,
+    MyCardsPageModule,
+    PointsHistoryPageModule,
     RouterModule.forChild([
       {
         path: '',
-        component: HomePage,
-        children: [
-          {
-            path: 'my_card',
-            children: [
-              {
-                path: '',
-                loadChildren: '../pages/my-cards/my-cards.module#MyCardsPageModule'
-              }
-            ]
-          },
-          {
-            path: 'history',
-            loadChildren: '../pages/points-history/points-history.module#PointsHistoryPageModule',
-          }
-        ]
+        component: HomePage
       }
-    ])
+    ]),
   ],
   declarations: [HomePage]
 })

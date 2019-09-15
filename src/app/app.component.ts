@@ -1,15 +1,15 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 import { Plugins } from '@capacitor/core';
 
-import { Platform } from "@ionic/angular";
+import { Platform } from '@ionic/angular';
 const { SplashScreen, StatusBar } = Plugins;
 
-import { AuthService } from "./services/user/auth.service";
+import { AuthService } from './services/user/auth.service';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "app.component.html",
-  styleUrls: ["app.component.scss"]
+  selector: 'app-root',
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss']
 })
 export class AppComponent {
   constructor(
