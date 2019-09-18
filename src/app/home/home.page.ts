@@ -52,18 +52,13 @@ export class HomePage implements AfterViewInit {
 
     async tryLaravel(){
       let token=await firebase.auth().currentUser.getIdToken();
+      
+      console.log(token);
+      const headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + token,
+      });
 
-      const httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type':  'application/json',
-          'Authorization': 'Bearer ' + token,
-          // 'Access-Control-Allow-Origin':'*',
-          // 'Access-Control-Allow-Methods':'GET, POST, PUT, DELETE, OPTIONS',
-          // 'Access-Control-Allow-Headers': '*',
-        })
-      };
-
-      this.httpClient.get("/api/me", httpOptions).subscribe((response) => {
+      this.httpClient.get("localhost:8000/api/me", { headers: headers }).subscribe((response) => {
         console.log(response);
     });
     }
