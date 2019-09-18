@@ -6,6 +6,7 @@ import 'firebase/auth';
 import { SuperTabs } from '@ionic-super-tabs/angular';
 import { MyCardsPage } from '../pages/my-cards/my-cards.page';
 import { PointsHistoryPage } from '../pages/points-history/points-history.page';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -28,8 +29,15 @@ export class HomePage implements AfterViewInit {
     public popoverController: PopoverController,
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
+    private httpClient: HttpClient
     ) {
       this.user = firebase.auth().currentUser.providerData[0];
+      this.test();
+    }
+
+    async test(){
+      let token=await firebase.auth().currentUser.getIdToken();
+      console.log(token);
     }
 
     async presentPopover(ev: any) {
@@ -40,5 +48,23 @@ export class HomePage implements AfterViewInit {
       });
 
       return await popover.present();
+    }
+
+    async tryLaravel(){
+      let token=await firebase.auth().currentUser.getIdToken();
+
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'Authorization': 'Bearer ' + token,
+          // 'Access-Control-Allow-Origin':'*',
+          // 'Access-Control-Allow-Methods':'GET, POST, PUT, DELETE, OPTIONS',
+          // 'Access-Control-Allow-Headers': '*',
+        })
+      };
+
+      this.httpClient.get("/api/me", httpOptions).subscribe((response) => {
+        console.log(response);
+    });
     }
 }

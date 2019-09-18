@@ -54,6 +54,13 @@ export class AuthService {
       const result = await Plugins.GoogleAuth.signIn()
       const googleCredential = await firebase.auth.GoogleAuthProvider.credential(result.authentication.idToken);
       const response = await firebase.auth().signInWithCredential(googleCredential);
+      var token = response.credential.toJSON();
+      // The signed-in user info.
+      var user = response.user;
+
+      console.log(response);
+      console.log(token);
+      console.log(user.toJSON());
       return response.additionalUserInfo.profile;
     }
     catch (error) {
@@ -96,6 +103,13 @@ export class AuthService {
     try {
       const result = await firebase.auth().signInWithPopup(provider);
       
+      var token = result.credential.toJSON();
+      // The signed-in user info.
+      var user = result.user;
+
+      console.log(result);
+      console.log(token);
+      console.log(user);
       return result;
     } catch (err) {
       

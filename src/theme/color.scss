@@ -1,22 +1,54 @@
-// Ionic Variables and Theming. For more info, please see:
-// http://ionicframework.com/docs/theming/
-
-/** Ionic CSS Variables **/
-:root {
-  --ion-color-toptab: #ffffff;
-  --ion-color-toptab-rgb: 255, 255, 255;
-  --ion-color-toptab-contrast: #FF6969;
-  --ion-color-toptab-contrast-rgb: 255, 105, 105;
-  --ion-color-toptab-shade: #e0bd00;
-  --ion-color-toptab-tint: #ffdb1a;
-}
-.ion-color-toptab {
-  --ion-color-base: var(--ion-color-toptab) !important;
-  --ion-color-base-rgb: var(--ion-color-toptab-rgb) !important;
-  --ion-color-contrast: var(--ion-color-toptab-contrast) !important;
-  --ion-color-contrast-rgb: var(--ion-color-toptab-contrast-rgb) !important;
-  --ion-color-shade: var(--ion-color-toptab-shade) !important;
-  --ion-color-tint: var(--ion-color-toptab-tint) !important;
-}
-
-$font-family-base: "Open Sans";
+    // Ionic Variables and Theming. For more info, please see:
+    // http://ionicframework.com/docs/theming/
+    /** Ionic CSS Variables **/
+    
+     :root {
+        //color for top tab in home page
+        --ion-color-toptab: #ffffff;
+        --ion-color-toptab-rgb: 255, 255, 255;
+        --ion-color-toptab-contrast: #FF6969;
+        --ion-color-toptab-contrast-rgb: 255, 105, 105;
+        --ion-color-toptab-shade: #e0bd00;
+        --ion-color-toptab-tint: #ffdb1a;
+        //for google login
+        --ion-color-google: #DB4437;
+        --ion-color-google-rgb: 255, 255, 255;
+        --ion-color-google-contrast: #fff;
+        --ion-color-google-contrast-rgb: 255, 105, 105;
+        --ion-color-google-shade: #ED9D97;
+        --ion-color-google-tint: #e57368;
+        //for facebook login
+        --ion-color-facebook: #3b5998;
+        --ion-color-facebook-rgb: 255, 255, 255;
+        --ion-color-facebook-contrast: #fff;
+        --ion-color-facebook-contrast-rgb: 255, 105, 105;
+        --ion-color-facebook-shade: #ADB9D3;
+        --ion-color-facebook-tint: #637BAD;
+    }
+    
+    .ion-color-toptab {
+        --ion-color-base: var(--ion-color-toptab) !important;
+        --ion-color-base-rgb: var(--ion-color-toptab-rgb) !important;
+        --ion-color-contrast: var(--ion-color-toptab-contrast) !important;
+        --ion-color-contrast-rgb: var(--ion-color-toptab-contrast-rgb) !important;
+        --ion-color-shade: var(--ion-color-toptab-shade) !important;
+        --ion-color-tint: var(--ion-color-toptab-tint) !important;
+    }
+    
+    .ion-color-google {
+        --ion-color-base: var(--ion-color-google) !important;
+        --ion-color-base-rgb: var(--ion-color-google-rgb) !important;
+        --ion-color-contrast: var(--ion-color-google-contrast) !important;
+        --ion-color-contrast-rgb: var(--ion-color-google-contrast-rgb) !important;
+        --ion-color-shade: var(--ion-color-google-shade) !important;
+        --ion-color-tint: var(--ion-color-google-tint) !important;
+    }
+    
+    .ion-color-facebook {
+        --ion-color-base: var(--ion-color-facebook) !important;
+        --ion-color-base-rgb: var(--ion-color-facebook-rgb) !important;
+        --ion-color-contrast: var(--ion-color-facebook-contrast) !important;
+        --ion-color-contrast-rgb: var(--ion-color-facebook-contrast-rgb) !important;
+        --ion-color-shade: var(--ion-color-facebook-shade) !important;
+        --ion-color-tint: var(--ion-color-facebook-tint) !important;
+    }

@@ -31,7 +31,7 @@ export class PopoverComponent implements OnInit {
             this.router.navigateByUrl('');
           });
         });
-      },
+      }, 
       error => {
         this.loading.dismiss().then(async () => {
           const alert = await this.alertCtrl.create({
