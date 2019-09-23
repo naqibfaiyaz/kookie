@@ -49,17 +49,4 @@ export class HomePage implements AfterViewInit {
 
       return await popover.present();
     }
-
-    async tryLaravel(){
-      let token=await firebase.auth().currentUser.getIdToken();
-      
-      console.log(token);
-      const headers = new HttpHeaders({
-        'Authorization': 'Bearer ' + token,
-      });
-
-      this.httpClient.get("localhost:8000/api/me", { headers: headers }).subscribe((response) => {
-        console.log(response);
-    });
-    }
 }
