@@ -19,14 +19,6 @@ export class MyCardsPage implements OnInit {
   ngOnInit() {
   }
 
-  // ionViewWillEnter() {
-  //   this.getQRCode();
-    
-  //   console.log(this.qrCodeData);
-  //   this.qrCodeData.img = "http://localhost:8002/" + this.qrCodeData.QRCodeURL;
-  //   this.qrCodeData.userID = this.qrCodeData.userID;
-  // }
-
   async ionViewWillEnter() {
     let token=await firebase.auth().currentUser.getIdToken();
     
@@ -35,9 +27,6 @@ export class MyCardsPage implements OnInit {
     });
 
     this.qrCodeData = await this.httpClient.get(backend.host + "api/me", { headers: headers }).toPromise();
-    
-    console.log(this.qrCodeData);
     this.qrCodeData.img = backend.host + this.qrCodeData.qr_location;
-
   }
 }
