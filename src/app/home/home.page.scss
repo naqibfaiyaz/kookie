@@ -15,12 +15,10 @@
     vertical-align: middle;
 }
 
-ion-tab-button {
-    --color-selected: #FF7141;
+.tab-font-color{
+    color: #000;
 }
 
-.tabbar[aria-selected=true] {
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
-    border-bottom-color: #FF7141;
+.active > .tab-font-color {
+    color: #FF6969 !important;
 }

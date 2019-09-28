@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header no-border>
     <ion-toolbar color="secondary">
         <ion-avatar slot="start">
             <img class="img-div" src="{{ user.photoURL }}">
@@ -11,13 +11,13 @@
 </ion-header>
 
 <ion-content>
-    <super-tabs>
+    <super-tabs no-shadow no-border>
         <super-tabs-toolbar slot="top" color="toptab">
             <super-tab-button>
-                <ion-label>My Cards</ion-label>
+                <ion-label class="font-16 tab-font-color">My Cards</ion-label>
             </super-tab-button>
             <super-tab-button>
-                <ion-label>Offers</ion-label>
+                <ion-label class="font-16 tab-font-color">Offers</ion-label>
             </super-tab-button>
         </super-tabs-toolbar>
         <super-tabs-container>

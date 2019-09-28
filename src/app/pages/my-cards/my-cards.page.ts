@@ -36,7 +36,7 @@ export class MyCardsPage implements OnInit {
 
     this.qrCodeData = await this.httpClient.get("http://localhost:8002/api/me", { headers: headers }).toPromise();
     
-    this.qrCodeData.img = "http://localhost:8002/" + this.qrCodeData.QRCodeURL;
+    this.qrCodeData.img = "http://localhost:8002/" + this.qrCodeData.qr_location;
     this.qrCodeData.userID = this.qrCodeData.userID;
 
   }
