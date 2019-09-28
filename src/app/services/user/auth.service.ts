@@ -2,12 +2,11 @@ import { Injectable, NgZone } from "@angular/core";
 import { Platform } from "@ionic/angular";
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Facebook } from "@ionic-native/facebook/ngx";
-import { firebaseConfig } from '../../credentials';
+import { firebaseConfig } from '../../../environments/environment';
 import { BehaviorSubject } from "rxjs";
 import firebase from "@firebase/app";
 import "@firebase/auth";
 import { Plugins } from '@capacitor/core';
-import { resolve } from 'q';
 
 @Injectable({
   providedIn: "root"

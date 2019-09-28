@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
-import { tap } from 'rxjs/operators';
+import { backend } from '../../../environments/environment';
 
 @Component({
   selector: 'app-my-cards',
@@ -34,10 +34,10 @@ export class MyCardsPage implements OnInit {
       'Authorization': 'Bearer ' + token,
     });
 
-    this.qrCodeData = await this.httpClient.get("http://localhost:8002/api/me", { headers: headers }).toPromise();
+    this.qrCodeData = await this.httpClient.get(backend.host + "api/me", { headers: headers }).toPromise();
     
-    this.qrCodeData.img = "http://localhost:8002/" + this.qrCodeData.QRCodeURL;
-    this.qrCodeData.userID = this.qrCodeData.userID;
+    console.log(this.qrCodeData);
+    this.qrCodeData.img = backend.host + this.qrCodeData.qr_location;
 
   }
 }
