@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
-import { backend } from '../../../environments/environment';
+import { KookieCoreService } from '../../kookie-core.service';
+import { StorageManagerService } from '../../services/storage-manager.service'
 
 @Component({
   selector: 'app-my-cards',
@@ -10,9 +11,9 @@ import { backend } from '../../../environments/environment';
   styleUrls: ['./my-cards.page.scss'],
 })
 export class MyCardsPage implements OnInit {
-  qrCodeData: any = {};
+  results:any={};
   constructor(
-    private httpClient: HttpClient
+    private apiService: KookieCoreService,
   ) { 
   }
 
@@ -20,13 +21,13 @@ export class MyCardsPage implements OnInit {
   }
 
   async ionViewWillEnter() {
-    let token=await firebase.auth().currentUser.getIdToken();
-    
-    const headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + token,
+    this.apiService.getMe().then(result => {
+      this.results = result;
+      this.results.img = this.apiService.imageUrl + this.results.qr_location;
+      console.log(this.results);
     });
-
-    this.qrCodeData = await this.httpClient.get(backend.host + "api/me", { headers: headers }).toPromise();
-    this.qrCodeData.img = backend.host + this.qrCodeData.qr_location;
+    
+    // this.qrCodeData = await this.httpClient.get(backend.host + "api/me", { headers: headers }).toPromise();
+    // this.qrCodeData.img = backend.host + this.qrCodeData.qr_location;
   }
 }

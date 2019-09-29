@@ -1,3 +1,4 @@
+// import { KookieCoreService } from './kookie-core.service';
 import { PopoverComponent } from './component/popover/popover.component';
 import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
       provide:
       RouteReuseStrategy,
       useClass: IonicRouteStrategy 
-    }
+    },
+    // KookieCoreService,
+    // Network
   ],
   bootstrap: [AppComponent]
 })

@@ -8,6 +8,7 @@ import { MyCardsPage } from '../pages/my-cards/my-cards.page';
 import { PointsHistoryPage } from '../pages/points-history/points-history.page';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',

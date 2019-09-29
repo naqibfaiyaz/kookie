@@ -1,12 +1,12 @@
 import { Injectable, NgZone } from "@angular/core";
 import { Platform } from "@ionic/angular";
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Facebook } from "@ionic-native/facebook/ngx";
 import { firebaseConfig } from '../../../environments/environment';
 import { BehaviorSubject } from "rxjs";
 import firebase from "@firebase/app";
 import "@firebase/auth";
 import { Plugins } from '@capacitor/core';
+import { StorageManagerService } from '../storage-manager.service'
 
 @Injectable({
   providedIn: "root"
@@ -15,7 +15,12 @@ export class AuthService {
   public user: {};
   public loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor(private platform: Platform, private zone: NgZone, private facebook: Facebook, private googlePlus: GooglePlus) {}
+  constructor(
+    private platform: Platform, 
+    private zone: NgZone, 
+    private facebook: Facebook,
+    private storage:StorageManagerService
+    ) {}
 
   init(): void {
 
@@ -24,6 +29,8 @@ export class AuthService {
 
     // Emit logged in status whenever auth state changes
     firebase.auth().onAuthStateChanged(firebaseUser => {
+      firebaseUser.getIdToken().then(token => this.storage.setItem('jwt_token', token)) // save the token server-side and use it to push notifications to this device
+      .catch(error => console.error('Error getting token', error));
       this.zone.run(() => {
         firebaseUser ? this.loggedIn.next(true) : this.loggedIn.next(false);
       });
