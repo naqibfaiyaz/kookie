@@ -26,5 +26,5 @@ export const firebaseConfig = {
 };
 
 export const backend = {
-  host: "http://192.168.10.10/",
+  host: "http://192.168.10.10",
 }

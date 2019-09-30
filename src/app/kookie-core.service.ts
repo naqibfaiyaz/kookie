@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from  '@angular/common/http';
-import { Observable } from  'rxjs';
-import { map } from 'rxjs/operators';
 import { StorageManagerService } from './services/storage-manager.service'
+import { backend} from '../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class KookieCoreService {
-  baseUrl:string = "http://192.168.10.10/user/api/";
-  imageUrl:string = "http://192.168.10.10/";
-  token:any={};
+  public baseUrl:string = backend.host + "/user/api/";
+  public imageUrl:string = backend.host + "/";
+  
 constructor(
     private  httpClient : HttpClient,
     private  storage : StorageManagerService
@@ -19,12 +18,21 @@ constructor(
 // Sending a GET request to /products
 
 public async getMe(): Promise<any> {
-  this.token=await this.storage.getItem('jwt_token');
+  let token=await this.storage.getItem('jwt_token');
 
   const headers = new HttpHeaders({
-    'Authorization': 'Bearer ' + this.token.value,
+    'Authorization': 'Bearer ' + token.value,
   });
   return this.httpClient.get(this.baseUrl + 'me', { headers: headers }).toPromise();
+}
+
+public async getAllCards(): Promise<any> {
+  let token=await this.storage.getItem('jwt_token');
+
+  const headers = new HttpHeaders({
+    'Authorization': 'Bearer ' + token.value,
+  });
+  return this.httpClient.get(this.baseUrl + 'getAllCards', { headers: headers }).toPromise();
 }
 
 // Sending a POST request to /products
