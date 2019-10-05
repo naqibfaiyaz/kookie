@@ -32,9 +32,17 @@ public async getAllCards(): Promise<any> {
   const headers = new HttpHeaders({
     'Authorization': 'Bearer ' + token.value,
   });
-  return this.httpClient.get(this.baseUrl + 'getAllCards', { headers: headers }).toPromise();
+  return this.httpClient.get(this.baseUrl + 'getAllCardData', { headers: headers }).toPromise();
 }
 
+public async getUserPoints(): Promise<any> {
+  let token=await this.storage.getItem('jwt_token');
+
+  const headers = new HttpHeaders({
+    'Authorization': 'Bearer ' + token.value,
+  });
+  return this.httpClient.get(this.baseUrl + 'getUserPoints', { headers: headers }).toPromise();
+}
 // Sending a POST request to /products
 
 // public  createProduct(product: Product) {
