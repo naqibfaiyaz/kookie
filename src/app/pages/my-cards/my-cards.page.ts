@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import { KookieCoreService } from '../../kookie-core.service';
-import { StorageManagerService } from '../../services/storage-manager.service'
+import { StorageManagerService } from '../../services/storage-manager.service';
+import { CommonFunctionsService } from '../../services/common-functions.service';
+import { PointsSuccessPage } from '../points-success/points-success.page';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-my-cards',
@@ -17,7 +20,10 @@ export class MyCardsPage implements OnInit {
   min_points_to_redeem:any =[];
   constructor(
     private apiService: KookieCoreService,
-    private storage: StorageManagerService
+    private storage: StorageManagerService,
+    private router: Router,
+    private navCtrl: NavController,
+    private commonServices:CommonFunctionsService
   ) { 
   }
 
@@ -25,6 +31,7 @@ export class MyCardsPage implements OnInit {
   }
 
   async ionViewWillEnter() {
+    this.commonServices.presentLoadingWithOptions();
     let UserData = await this.storage.getObject('user_me_data');
     
     // if(!UserData){
@@ -36,7 +43,7 @@ export class MyCardsPage implements OnInit {
 
     this.allCardData = await this.apiService.getAllCards();
     let getUserPoints = await this.apiService.getUserPoints();
-    await this.calculatePointsImageType(getUserPoints);
+    await this.calculatePoints(getUserPoints);
     this.allCardData.sort(function (a, b) {
       if(!a.rewardAvailable){
         a.rewardAvailable=0;
@@ -49,7 +56,19 @@ export class MyCardsPage implements OnInit {
     });
   };
 
-  async calculatePointsImageType(getUserPoints) {
+  goToRewardDetails(item) {
+    this.router.navigate(['/points-success', item]);
+    
+  //   let navigationExtras: NavigationExtras = {
+  //     queryParams: {
+  //       data: item
+  //     }
+  // };
+
+  //   this.navCtrl.navigateForward(['/points-success'], navigationExtras);
+  }
+
+  async calculatePoints(getUserPoints) {
       this.allCardData.forEach(element => {
         element.userPointsData=getUserPoints.find(function(getUserPointsElement) {
           return getUserPointsElement.merchant_code===element.merchant_code;

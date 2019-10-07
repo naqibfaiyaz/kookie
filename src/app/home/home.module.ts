@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { SuperTabsModule } from '@ionic-super-tabs/angular';
 import { HomePage } from './home.page';
 import { MyCardsPageModule } from './../pages/my-cards/my-cards.module';
-import { PointsHistoryPageModule } from './../pages/points-history/points-history.module';
+import { MyOffersPageModule } from './../pages/my-offers/my-offers.module';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { PointsHistoryPageModule } from './../pages/points-history/points-histor
     IonicModule,
     SuperTabsModule,
     MyCardsPageModule,
-    PointsHistoryPageModule,
+    MyOffersPageModule,
     RouterModule.forChild([
       {
         path: '',

@@ -1,11 +1,11 @@
 import { PopoverComponent } from './../component/popover/popover.component';
 import { AfterViewInit, Component, ViewChild  } from '@angular/core';
-import { PopoverController, AlertController, LoadingController } from '@ionic/angular';
+import { PopoverController, AlertController } from '@ionic/angular';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import { SuperTabs } from '@ionic-super-tabs/angular';
 import { MyCardsPage } from '../pages/my-cards/my-cards.page';
-import { PointsHistoryPage } from '../pages/points-history/points-history.page';
+import { MyOffersPage } from '../pages/my-offers/my-offers.page';
 
 
 @Component({
@@ -14,21 +14,18 @@ import { PointsHistoryPage } from '../pages/points-history/points-history.page';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements AfterViewInit {
-  private user: any = {};
-  public loading: HTMLIonLoadingElement;
+  public user: any = {};
   @ViewChild(SuperTabs, { static: false }) superTabs: SuperTabs;
 
   MyCardsPage = MyCardsPage;
-  PointsHistoryPage = PointsHistoryPage;
+  MyOffersPage = MyOffersPage;
 
   ngAfterViewInit() {
-    console.log('Super tabs is ', this.superTabs);
     this.superTabs.selectTab(0);
   }
   constructor(
     public popoverController: PopoverController,
-    public alertCtrl: AlertController,
-    public loadingCtrl: LoadingController
+    public alertCtrl: AlertController
     ) {
       this.user = firebase.auth().currentUser.providerData[0];
     }

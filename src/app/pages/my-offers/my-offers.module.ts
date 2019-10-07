@@ -1,11 +1,12 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { UsePointsPage } from './use-points.page';
+import { MyOffersPage } from './my-offers.page';
+
 
 @NgModule({
   imports: [
@@ -13,12 +14,12 @@ import { UsePointsPage } from './use-points.page';
     FormsModule,
     IonicModule
   ],
-  declarations: [UsePointsPage],
+  declarations: [MyOffersPage],
   entryComponents: [
-    UsePointsPage,
+    MyOffersPage,
   ],
   exports: [
-    UsePointsPage,
-  ]
+    MyOffersPage,
+  ],
 })
-export class UsePointsPageModule {}
+export class MyOffersPageModule {}

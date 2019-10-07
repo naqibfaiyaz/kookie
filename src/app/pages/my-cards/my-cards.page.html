@@ -53,13 +53,13 @@
             </div>
 
             <div style="float: right; padding: 10px 0;" *ngIf="item.point_type === 'points' && item.rewardAvailable>0">
-                <p style="color: #FF7141; display: inline-block; font-weight: bold; font-size: 14px; padding-right:4px;">{{ item.rewardAvailable }} Reward Available
+                <p style="color: #FF7141; display: inline-block; font-weight: bold; font-size: 14px; padding-right:4px;"  (click)="goToRewardDetails(item)">{{ item.rewardAvailable }} Reward Available
                     <ion-icon name="arrow-round-forward" style="font-size: 18px; vertical-align: middle;"></ion-icon>
                 </p>
             </div>
 
             <div style="float: right;" *ngIf="item.point_type != 'points' && item.rewardAvailable>0">
-                <p style="color: #FF7141; display: inline-block; font-weight: bold; font-size: 14px; padding-right:4px;">{{ item.rewardAvailable }} Reward Available
+                <p style="color: #FF7141; display: inline-block; font-weight: bold; font-size: 14px; padding-right:4px;"  (click)="goToRewardDetails(item)">{{ item.rewardAvailable }} Reward Available
                     <ion-icon name="arrow-round-forward" style="font-size: 18px; vertical-align: middle;"></ion-icon>
                 </p>
             </div>
