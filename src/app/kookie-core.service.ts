@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from  '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { StorageManagerService } from './services/storage-manager.service'
 import { backend} from '../environments/environment'
 
@@ -7,6 +7,7 @@ import { backend} from '../environments/environment'
   providedIn: 'root'
 })
 export class KookieCoreService {
+  params = {};
   public baseUrl:string = backend.host + "/user/api/";
   public imageUrl:string = backend.host + "/";
   
@@ -19,11 +20,11 @@ constructor(
 
 public async getMe(): Promise<any> {
   let token=await this.storage.getItem('jwt_token');
-
+  
   const headers = new HttpHeaders({
     'Authorization': 'Bearer ' + token.value,
   });
-  return this.httpClient.get(this.baseUrl + 'me', { headers: headers }).toPromise();
+  return this.httpClient.get(this.baseUrl + 'me', { headers: headers}).toPromise();
 }
 
 public async getAllCards(): Promise<any> {

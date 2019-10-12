@@ -7,6 +7,9 @@
     "ios": {
         "cordovaLinkerFlags": ["-ObjC"]
     },
+    "android": {
+        "allowMixedContent": true
+    },
     "plugins": {
         "GoogleAuth": {
             "scopes": ["email"],

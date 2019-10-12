@@ -12,6 +12,7 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { SuperTabsModule } from '@ionic-super-tabs/angular';
 import "@codetrix-studio/capacitor-google-auth";
 import { HttpClientModule } from '@angular/common/http';
+import { HTTP } from '@ionic-native/http/ngx';
 
 @NgModule({
   declarations: [AppComponent, PopoverComponent],
@@ -24,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
       provide:
       RouteReuseStrategy,
       useClass: IonicRouteStrategy 
-    },
+    }
     // KookieCoreService,
     // Network
   ],

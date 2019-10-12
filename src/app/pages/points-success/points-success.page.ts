@@ -19,7 +19,7 @@ export class PointsSuccessPage implements AfterViewInit, OnInit {
   PointsHistoryPage = PointsHistoryPage;
 
   ngAfterViewInit() {
-    this.superTabs.selectTab(0);
+    // this.superTabs.selectTab(0);
   }
 
   ngOnInit() {

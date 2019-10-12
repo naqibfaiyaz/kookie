@@ -26,5 +26,7 @@ export const firebaseConfig = {
 };
 
 export const backend = {
-  host: "http://localhost:8003",
+  // host: "http://192.168.10.10", //Local test 1
+  // host: "http://localhost:8003", //Local test 2
+  host: "https://mygpapp.info", //Current Production
 }

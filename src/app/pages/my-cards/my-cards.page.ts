@@ -15,7 +15,7 @@ import { NavigationExtras } from '@angular/router';
 })
 export class MyCardsPage implements OnInit {
   userMeData:any={};
-  allCardData:any={};
+  allCardData:any=[];
   // getUserPoints:any={};
   min_points_to_redeem:any =[];
   constructor(
@@ -35,11 +35,9 @@ export class MyCardsPage implements OnInit {
     let UserData = await this.storage.getObject('user_me_data');
     
     // if(!UserData){
-    this.apiService.getMe().then(result => {
-      this.userMeData = result;
-      this.userMeData.img = this.apiService.imageUrl + this.userMeData.qr_location;
-      this.storage.setObject('user_me_data', this.userMeData);
-    });
+    this.userMeData=await this.apiService.getMe();
+    this.userMeData.img = this.apiService.imageUrl + this.userMeData.qr_location;
+    this.storage.setObject('user_me_data', this.userMeData);
 
     this.allCardData = await this.apiService.getAllCards();
     let getUserPoints = await this.apiService.getUserPoints();

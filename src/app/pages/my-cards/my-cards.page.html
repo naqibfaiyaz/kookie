@@ -7,8 +7,7 @@
         </ion-card-content>
     </ion-card>
 
-    <ion-card style="background-color: #fff; box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.15); margin: 16px;
-    border-radius: 10px;" *ngFor="let item of allCardData">
+    <ion-card style="background-color: #fff; box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.15); margin: 16px; border-radius: 10px;" *ngFor="let item of allCardData">
         <ion-card-content>
             <ion-grid class="ion-no-padding">
                 <ion-row>
@@ -53,13 +52,13 @@
             </div>
 
             <div style="float: right; padding: 10px 0;" *ngIf="item.point_type === 'points' && item.rewardAvailable>0">
-                <p style="color: #FF7141; display: inline-block; font-weight: bold; font-size: 14px; padding-right:4px;"  (click)="goToRewardDetails(item)">{{ item.rewardAvailable }} Reward Available
+                <p style="color: #FF7141; display: inline-block; font-weight: bold; font-size: 14px; padding-right:4px;" (click)="goToRewardDetails(item)">{{ item.rewardAvailable }} Reward Available
                     <ion-icon name="arrow-round-forward" style="font-size: 18px; vertical-align: middle;"></ion-icon>
                 </p>
             </div>
 
             <div style="float: right;" *ngIf="item.point_type != 'points' && item.rewardAvailable>0">
-                <p style="color: #FF7141; display: inline-block; font-weight: bold; font-size: 14px; padding-right:4px;"  (click)="goToRewardDetails(item)">{{ item.rewardAvailable }} Reward Available
+                <p style="color: #FF7141; display: inline-block; font-weight: bold; font-size: 14px; padding-right:4px;" (click)="goToRewardDetails(item)">{{ item.rewardAvailable }} Reward Available
                     <ion-icon name="arrow-round-forward" style="font-size: 18px; vertical-align: middle;"></ion-icon>
                 </p>
             </div>

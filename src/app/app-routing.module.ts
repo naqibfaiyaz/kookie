@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule'},
   // { path: 'my-cards/:id', loadChildren: './my-cards/my-cards.module#MyCardsPageModule', canActivate: [AuthGuard] },
   // { path: 'use-points/:id', loadChildren: './pages/use-points/use-points.module#UsePointsPageModule', canActivate: [AuthGuard] },
-  { path: 'points-success', loadChildren: './pages/points-success/points-success.module#PointsSuccessPageModule', canActivate: [AuthGuard] },  { path: 'my-offers', loadChildren: './pages/my-offers/my-offers.module#MyOffersPageModule' },
+  { path: 'points-success', loadChildren: './pages/points-success/points-success.module#PointsSuccessPageModule', canActivate: [AuthGuard] },
+  // { path: 'my-offers', loadChildren: './pages/my-offers/my-offers.module#MyOffersPageModule' },
 
   // { path: 'points-history', loadChildren: './points-history/points-history.module#PointsHistoryPageModule', canActivate: [AuthGuard] },
   // { path: 'settings', loadChildren: './pages/settings/settings.module#SettingsPageModule' },

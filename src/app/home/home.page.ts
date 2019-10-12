@@ -21,7 +21,7 @@ export class HomePage implements AfterViewInit {
   MyOffersPage = MyOffersPage;
 
   ngAfterViewInit() {
-    this.superTabs.selectTab(0);
+    // this.superTabs.selectTab(0);
   }
   constructor(
     public popoverController: PopoverController,
@@ -39,4 +39,14 @@ export class HomePage implements AfterViewInit {
 
       return await popover.present();
     }
+
+    public config = {
+      // maxDragAngle: 40,
+      // dragThreshold: 20,
+      // allowElementScroll: true,
+      // transitionDuration: 150,
+      // sideMenu: 'left',
+      // sideMenuThreshold: 50,
+      // shortSwipeDuration: 260
+   };
 }
