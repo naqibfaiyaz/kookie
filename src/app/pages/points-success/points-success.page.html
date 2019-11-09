@@ -1,65 +1,65 @@
 <ion-header>
-  <ion-toolbar color="secondary">
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title class="ion-no-padding">
-        <p class="font-16">{{ item.merchant_name }}</p>
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-no-padding">
+            <p class="font-16">{{ item.merchant_name }}</p>
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card class="ion-no-margin" style="background-color: #fff; box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.15)">
-    <ion-card-content style="padding: 16px 40px;">
-        <div style="font-size: 14px;" *ngIf="item.point_type != 'points'">{{ item.description }}</div>
-        <div style="font-size: 14px; text-align: center;" *ngIf="item.point_type === 'points'">Your Points</div>
+    <ion-card class="ion-no-margin" style="background-color: #fff; box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.15)">
+        <ion-card-content style="padding: 16px 40px;">
+            <div style="font-size: 14px;" *ngIf="item.point_type != 'points'">{{ item.description }}</div>
+            <div style="font-size: 14px; text-align: center;" *ngIf="item.point_type === 'points'">Your Points</div>
 
-        <div style="display: inline-block" *ngIf="item.point_type != 'points'">
-          <p style="color: #FF7141; display: inline-block; font-weight: bold; font-size: 14px; padding-right:4px;">{{ item.pointToShow }} </p>
-          <p style="display: inline-block; font-weight: bold; font-size: 14px; color: #333333;"> / {{ item.min_points_to_redeem }} {{ item.point_type }}</p>
-      </div>
-
-        <div *ngIf="item.point_type != 'points' && item.userPointsData">
-            <div style="padding: 16px 16px 16px 0; display: inline-block;" *ngFor="let numbers of item.currentPointsArray">
-                <ion-img [src]="item.icon" style="height: 32px; width: 32px; border: 1px solid black; padding: 5px; border-radius: 50%;"></ion-img>
+            <div style="display: inline-block" *ngIf="item.point_type != 'points'">
+                <p style="color: #FF7141; display: inline-block; font-weight: bold; font-size: 14px; padding-right:4px;">{{ item.pointToShow }} </p>
+                <p style="display: inline-block; font-weight: bold; font-size: 14px; color: #333333;"> / {{ item.min_points_to_redeem }} {{ item.point_type }}</p>
             </div>
-            <div style="padding: 16px 16px 16px 0; display: inline-block;" *ngFor="let numbers of item.emptyFill">
-                <div style="height: 32px; width: 32px; border: 1px solid black; padding: 5px; border-radius: 50%;"></div>
+
+            <div *ngIf="item.point_type != 'points' && item.userPointsData">
+                <div style="padding: 16px 16px 16px 0; display: inline-block;" *ngFor="let numbers of item.currentPointsArray">
+                    <ion-img [src]="item.loyalty_icon" style="height: 32px; width: 32px; border: 1px solid black; padding: 5px; border-radius: 50%;"></ion-img>
+                </div>
+                <div style="padding: 16px 16px 16px 0; display: inline-block;" *ngFor="let numbers of item.emptyFill">
+                    <div style="height: 32px; width: 32px; border: 1px solid black; padding: 5px; border-radius: 50%;"></div>
+                </div>
             </div>
-        </div>
 
-        <div *ngIf="item.point_type != 'points' && !item.userPointsData">
-            <div style="padding: 16px 16px 16px 0; display: inline-block;" *ngFor="let numbers of item.emptyFill">
-                <div style="height: 32px; width: 32px; border: 1px solid black; padding: 5px; border-radius: 50%;"></div>
+            <div *ngIf="item.point_type != 'points' && !item.userPointsData">
+                <div style="padding: 16px 16px 16px 0; display: inline-block;" *ngFor="let numbers of item.emptyFill">
+                    <div style="height: 32px; width: 32px; border: 1px solid black; padding: 5px; border-radius: 50%;"></div>
+                </div>
             </div>
-        </div>
 
-        <div style="font-size: 14px;" *ngIf="item.point_type != 'points'">{{ item.pointsRequired }} {{ item.point_type }} {{ item.loyalty_text }}</div>
+            <div style="font-size: 14px;" *ngIf="item.point_type != 'points'">{{ item.pointsRequired }} {{ item.point_type }} {{ item.loyalty_text }}</div>
 
-        <div style="text-align: center;" *ngIf="item.point_type === 'points'">
-            <p style="color: #515C6F; text-align: center; font-weight: bold; font-size: 24px;">{{ item.pointToShow }} </p>
-            <p style="padding: 0 24px;">Get free rewards when you have enough points!</p>
-        </div>
-    </ion-card-content>
-  </ion-card>
+            <div style="text-align: center;" *ngIf="item.point_type === 'points'">
+                <p style="color: #515C6F; text-align: center; font-weight: bold; font-size: 24px;">{{ item.pointToShow }} </p>
+                <p style="padding: 0 24px;">Get free rewards when you have enough points!</p>
+            </div>
+        </ion-card-content>
+    </ion-card>
 
-  <super-tabs> 
-    <super-tabs-toolbar slot="top" color="toptab">
-        <super-tab-button>
-            <ion-label>Use Points</ion-label>
-        </super-tab-button>
-        <super-tab-button>
-            <ion-label>History</ion-label>
-        </super-tab-button>
-    </super-tabs-toolbar>
-    <super-tabs-container>
-        <super-tab>
-            <ion-nav [root]="UsePointsPage"></ion-nav>
-        </super-tab>
-        <super-tab>
-            <ion-nav [root]="PointsHistoryPage"></ion-nav>
-        </super-tab>
-    </super-tabs-container>
-  </super-tabs>
+    <super-tabs>
+        <super-tabs-toolbar slot="top" color="toptab">
+            <super-tab-button>
+                <ion-label>Use Points</ion-label>
+            </super-tab-button>
+            <super-tab-button>
+                <ion-label>History</ion-label>
+            </super-tab-button>
+        </super-tabs-toolbar>
+        <super-tabs-container>
+            <super-tab>
+                <ion-nav [root]="UsePointsPage"></ion-nav>
+            </super-tab>
+            <super-tab>
+                <ion-nav [root]="PointsHistoryPage"></ion-nav>
+            </super-tab>
+        </super-tabs-container>
+    </super-tabs>
 </ion-content>

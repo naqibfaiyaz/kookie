@@ -1,4 +1,8 @@
 <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles">
+        </ion-refresher-content>
+    </ion-refresher>
     <ion-card class="ion-no-margin" style="background-color: #fff; box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.15)">
         <ion-card-content class="ion-no-padding">
             <ion-img [src]="userMeData.img" style="width: 120px; margin: auto;"></ion-img>

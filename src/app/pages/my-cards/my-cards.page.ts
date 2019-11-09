@@ -31,7 +31,7 @@ export class MyCardsPage implements OnInit {
   }
 
   async ionViewWillEnter() {
-    this.commonServices.presentLoadingWithOptions();
+    // this.commonServices.presentLoadingWithOptions();
     let UserData = await this.storage.getObject('user_me_data');
     
     // if(!UserData){
@@ -64,6 +64,13 @@ export class MyCardsPage implements OnInit {
   // };
 
   //   this.navCtrl.navigateForward(['/points-success'], navigationExtras);
+  }
+
+  doRefresh(event) {
+    // this.ionViewWillEnter();
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
   }
 
   async calculatePoints(getUserPoints) {

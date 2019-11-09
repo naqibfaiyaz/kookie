@@ -123,7 +123,7 @@ export class LoginPage implements OnInit {
   async showLoading() {
     this.loading = await this.loadingCtrl.create({
       message: "Loading. Please Wait...",
-      duration: 10000
+      duration: 1000
     });
 
     this.loading.present();
