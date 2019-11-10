@@ -1,9 +1,14 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>use-points</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+    <ion-grid>
+        <ion-row style="margin: 8px; padding: 8px; box-shadow: 0px 0px 8px rgba(0,0,0,.1);" *ngFor="let item of redeemableOffers">
+            <ion-col size="8" align-self-center class="font-14" style="font-weight: bold;">
+                {{ item.offerings_for_redeem }}
+            </ion-col>
+            <ion-col size="4" align-self-center>
+                <ion-button style="display: inline-block;" color="danger" size="small" (click)="redeemPoints(item.id)">
+                    Redeem
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

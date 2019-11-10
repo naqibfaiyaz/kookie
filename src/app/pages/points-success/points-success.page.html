@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content>
-    <ion-card class="ion-no-margin" style="background-color: #fff; box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.15)">
+    <ion-card class="ion-no-margin" style="background-color: #fff; box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15)">
         <ion-card-content style="padding: 16px 40px;">
             <div style="font-size: 14px;" *ngIf="item.point_type != 'points'">{{ item.description }}</div>
             <div style="font-size: 14px; text-align: center;" *ngIf="item.point_type === 'points'">Your Points</div>
@@ -44,7 +44,7 @@
         </ion-card-content>
     </ion-card>
 
-    <super-tabs>
+    <super-tabs style="padding-top: 8px;">
         <super-tabs-toolbar slot="top" color="toptab">
             <super-tab-button>
                 <ion-label>Use Points</ion-label>

@@ -43,12 +43,12 @@
     --ion-color-warning-shade: #e0b500;
     --ion-color-warning-tint: #ffd31a;
     /** danger **/
-    --ion-color-danger: #f04141;
+    --ion-color-danger: #FB6340;
     --ion-color-danger-rgb: 245, 61, 61;
     --ion-color-danger-contrast: #ffffff;
     --ion-color-danger-contrast-rgb: 255, 255, 255;
-    --ion-color-danger-shade: #d33939;
-    --ion-color-danger-tint: #f25454;
+    --ion-color-danger-shade: #FB6340;
+    --ion-color-danger-tint: #FB6340;
     /** dark **/
     --ion-color-dark: #222428;
     --ion-color-dark-rgb: 34, 34, 34;
@@ -102,6 +102,10 @@
 
 .font-16 {
     font-size: 16px;
+}
+
+.font-14 {
+    font-size: 14px;
 }
 
 .img-div {

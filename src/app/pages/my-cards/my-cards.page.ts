@@ -3,10 +3,8 @@ import 'firebase/auth';
 import { KookieCoreService } from '../../kookie-core.service';
 import { StorageManagerService } from '../../services/storage-manager.service';
 import { CommonFunctionsService } from '../../services/common-functions.service';
-import { PointsSuccessPage } from '../points-success/points-success.page';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-my-cards',
@@ -22,8 +20,6 @@ export class MyCardsPage implements OnInit {
     private apiService: KookieCoreService,
     private storage: StorageManagerService,
     private router: Router,
-    private navCtrl: NavController,
-    private commonServices:CommonFunctionsService
   ) { 
   }
 
@@ -41,7 +37,7 @@ export class MyCardsPage implements OnInit {
 
     this.allCardData = await this.apiService.getAllCards();
     let getUserPoints = await this.apiService.getUserPoints();
-    await this.calculatePoints(getUserPoints);
+    await this.preparePointsData(getUserPoints);
     this.allCardData.sort(function (a, b) {
       if(!a.rewardAvailable){
         a.rewardAvailable=0;
@@ -73,7 +69,7 @@ export class MyCardsPage implements OnInit {
     }, 2000);
   }
 
-  async calculatePoints(getUserPoints) {
+  async preparePointsData(getUserPoints) {
       this.allCardData.forEach(element => {
         element.userPointsData=getUserPoints.find(function(getUserPointsElement) {
           return getUserPointsElement.merchant_code===element.merchant_code;
@@ -84,6 +80,7 @@ export class MyCardsPage implements OnInit {
         
         if(element.userPointsData){
           if(parseInt(element.userPointsData.current_points) >= parseInt(element.min_points_to_redeem)){
+            element.rewardEligible=element.userPointsData.total_reward_eligible;
             element.rewardAvailable=Math.floor((parseInt(element.userPointsData.current_points))/parseInt(element.min_points_to_redeem));
 
             element.pointToShow=element.userPointsData.current_points-(element.rewardAvailable*element.min_points_to_redeem);

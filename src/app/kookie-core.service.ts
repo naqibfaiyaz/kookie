@@ -44,6 +44,24 @@ public async getUserPoints(): Promise<any> {
   });
   return this.httpClient.get(this.baseUrl + 'getUserPoints', { headers: headers }).toPromise();
 }
+
+public async getAvailableRedeemOffers(merchant_code): Promise<any> {
+  let token=await this.storage.getItem('jwt_token');
+
+  const headers = new HttpHeaders({
+    'Authorization': 'Bearer ' + token.value,
+  });
+  return this.httpClient.get(this.baseUrl + 'getRedeemOffers/' + merchant_code, { headers: headers }).toPromise();
+}
+
+public async redeemOffer(offer_id): Promise<any> {
+  let token=await this.storage.getItem('jwt_token');
+
+  const headers = new HttpHeaders({
+    'Authorization': 'Bearer ' + token.value,
+  });
+  return this.httpClient.post(this.baseUrl + 'redeemOffer', { headers: headers, offer_id: offer_id }).toPromise();
+}
 // Sending a POST request to /products
 
 // public  createProduct(product: Product) {

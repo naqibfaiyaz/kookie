@@ -16,7 +16,7 @@ export class PointsSuccessPage implements AfterViewInit, OnInit {
   @ViewChild(SuperTabs, { static: false }) superTabs: SuperTabs;
   constructor(
     private route: ActivatedRoute,
-    private apiService: KookieCoreService
+    private apiService: KookieCoreService,
     ) { }
 
   UsePointsPage = UsePointsPage;
